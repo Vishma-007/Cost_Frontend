@@ -1,0 +1,43 @@
+/* .navbar {
+  width:auto;
+    /* display: flex; */
+    /* justify-content: center; */
+    /* background-color: #dfdbdb;
+    padding: 1rem;
+  } */
+  
+  .nav-button {
+    background-color: #1f1e1e;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    margin: 0 0.5rem;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  .nav-button:hover {
+    background-color: #777;
+  }
+  .navbar {
+    width: 100%; /* Make the navbar span the full width of the page */
+    display: flex;
+    justify-content: center; /* Center the buttons horizontally */
+    background-color: #dfdbdb;
+    padding: 1rem;
+    box-sizing: border-box; /* Ensure padding is included in the width */
+  }
+  
+  .nav-button {
+    background-color: #1f1e1e;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    margin: 0 0.5rem;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  .nav-button:hover {
+    background-color: #777;
+  }

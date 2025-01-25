@@ -1,0 +1,296 @@
+/* .login-container {
+    width: 350px;
+    padding: 30px;
+    border-radius: 5px;
+    background-color: #f1eaea;
+    box-shadow: 0 2px 5px rgba(0.1, 0.1, 0.1, 0.1);
+    margin: 100px auto;
+  }
+  
+  .login-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .login-container label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .login-container input[type="text"],
+  .login-container input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+  }
+  
+  .login-container button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  .login-container button[type="submit"]:hover {
+    background-color: #45a049;
+  }
+  
+  .login-container .error {
+    color: red;
+    margin-bottom: 10px;
+  }
+
+
+ /*-----------------------------------------------------------------------*/
+
+ /* body {
+  font-family: Arial, sans-serif;
+  background-color: #121212;
+  color: #ffffff;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-image: url('/assets/Header-7.jpg'); /* Replace with your background image path */
+  /* background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.form-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-card {
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+}
+
+h2 {
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+  color: #333;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: #333;
+}
+
+input {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.submit-btn {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.submit-btn:hover {
+  background-color: #444;
+}
+
+.login-link {
+  margin-top: 1rem;
+}
+
+.login-link a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.login-link a:hover {
+  text-decoration: underline;
+} */
+ 
+
+/*--------------------------------------------*/
+
+
+/* login.component.css */
+/* .login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url('/assets/10.png'); /* Replace with your image path */
+  /* background-size: cover;
+  background-position: center;
+}
+
+.login-box {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 50px;
+  border-radius: 18px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 300px;
+  text-align: center;
+}
+
+h2 {
+  margin-bottom: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.btn {
+  width: 100%;
+  padding: 10px;
+  background-color: #4a4a4a;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #333;
+}
+
+.new-user {
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.new-user a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.new-user a:hover {
+  text-decoration: underline;
+} */
+ 
+/*-----------------------*/
+
+/* General container styling */
+.login-container {
+  width: 400px;
+  margin: 100px auto;
+  padding: 30px;
+  border: 1px solid #e0dddd;
+  border-radius: 40px;
+  background-color: #f1ecec;
+  box-shadow: 2px 6px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Main heading styling */
+.login-box {
+  text-align:center;
+  justify-content: center;
+  /* display: :block; */
+  font-size: 15px;
+  font-family: 'Arial Black', sans-serif;
+  color: #202020;
+  margin-bottom: 5px;
+}
+
+/* Role selector styling */
+.role-selector {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.role-selector label {
+  margin: 2 20px;
+  font-size: 14px;
+  font-family: 'Verdana', sans-serif;
+}
+
+/* Form group styling */
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  font-size: 14px;
+  font-family: 'Verdana', sans-serif;
+  color: #302f2f;
+  margin-bottom: 5px;
+  text-align: left; /* Align labels to the left edge */
+}
+
+input {
+  width: 90%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  font-size: 14px;
+  font-family: 'Verdana', sans-serif;
+}
+
+/* Submit button styling */
+.btn {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 20px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.submit-btn:hover {
+  background-color: #555;
+}
+
+/* Register link styling */
+.routerLink {
+  text-align: center;
+  /* text-decoration: underline; */
+  margin-top: 20px;
+  font-size: 10px;
+  font-family: 'Verdana', sans-serif;
+}
+
