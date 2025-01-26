@@ -12,6 +12,8 @@ import { CatalogsComponent } from './user/catalogs/catalogs.component';
 import { InquireNowComponent } from './user/inquire-now/inquire-now.component';
 import { NavbarComponent } from './user/navbar/navbar.component';
 import { ContactComponent } from './user/contact/contact.component';
+import { MaterialsComponent } from './user/materials/materials.component';
+
 
 
 export const routes: Routes = [  // Add 'export' here
@@ -26,6 +28,7 @@ export const routes: Routes = [  // Add 'export' here
   { path: 'inquire-now', component: InquireNowComponent },
   { path: 'navbar', component: NavbarComponent },
   {path:'contact', component: ContactComponent},
+  {path:'materials', component: MaterialsComponent},
 ];
 
 @NgModule({

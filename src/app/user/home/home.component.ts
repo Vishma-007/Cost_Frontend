@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { NavbarComponent } from '../navbar/navbar.component';
+import { MaterialsComponent } from '../materials/materials.component';
 
 @Component({
   selector: 'app-home',
@@ -10,11 +12,12 @@ import { NavbarComponent } from '../navbar/navbar.component';
   templateUrl: './home.component.html',
   imports: [
       FormsModule,
-      ReactiveFormsModule, NavbarComponent, CommonModule,RouterModule],
+      ReactiveFormsModule, NavbarComponent, CommonModule,RouterModule,MaterialsComponent],
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
   userDetailsForm: FormGroup;
+  
   // cities: string[] = ['City A', 'City B', 'City C']; // Example city options
   // states: string[] = ['State A', 'State B', 'State C']; // Example state options
   stateCitiesMap: { [state: string]: string[] } = {

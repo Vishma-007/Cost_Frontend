@@ -1,6 +1,7 @@
 <div class="form-container">
   <!-- Navbar -->
   <app-navbar></app-navbar>
+  <app-materials></app-materials>
 
   <!-- Form Content -->
   <div class="form-content">
@@ -73,7 +74,18 @@
       </div>
 
       <!-- Submit Button -->
-      <button type="submit" [disabled]="userDetailsForm.invalid">CALCULATE</button>
+      <!-- <button type="submit" [disabled]="userDetailsForm.invalid">CALCULATE</button> -->
+      <div class="button-group">
+        <button type="submit" class="calculate-button">Calculate</button>
+        <!-- <button
+          type="button"
+          class="explore-materials-button"
+          (click)="navigateToMaterials()"
+        >
+          Explore Materials
+        </button> -->
+        <button routerLink="/materials" class="nav-button">Explore Materials</button>
+      </div>
     </form>
   </div>
 </div>

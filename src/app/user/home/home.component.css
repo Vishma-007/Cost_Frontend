@@ -112,6 +112,16 @@ button:disabled {
   background-color: #bbb;
   cursor: not-allowed;
 }
+.explore-materials-button {
+  background-color: #666;
+  color: #fff;
+  float: right;
+}
+
+.explore-materials-button:hover {
+  background-color: #333;
+}
+
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
