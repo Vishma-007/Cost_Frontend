@@ -23,7 +23,7 @@
     width: 100%; /* Make the navbar span the full width of the page */
     display: flex;
     justify-content: center; /* Center the buttons horizontally */
-    background-color: #dfdbdb;
+    background-color: #ffffff;
     padding: 1rem;
     box-sizing: border-box; /* Ensure padding is included in the width */
   }

@@ -1,87 +1,74 @@
-<!-- <div class="login-container">
-    <h2>LOGIN</h2>
-    <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
-      <div>
-        <label for="username">Username:</label>
-        <input id="username" formControlName="username" type="text" />
-        <div *ngIf="loginForm.get('username')?.invalid && loginForm.get('username')?.touched">
-          Username is required.
+<!-- 
+
+
+   <div class="login-container">
+    <div class="login-box">
+      <h2>Login</h2>
+      <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+        <!-- Role Selection -->
+        <!-- <div class="role-selector">
+          <label>
+            <input
+              type="radio"
+              formControlName="role"
+              value="user"
+            /> User
+          </label>
+          <label>
+            <input
+              type="radio"
+              formControlName="role"
+              value="admin"
+            /> Admin
+          </label>
         </div>
-      </div>
-      <div>
-        <label for="password">Password:</label>
-        <input id="password" formControlName="password" type="password" />
-        <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
-          Password is required.
-        </div>
-      </div>
-      <button type="submit" [disabled]="loginForm.invalid">Login</button>
-      <div *ngIf="loginError" class="error">{{ loginError }}</div>
-    </form>
-    <a routerLink="/forgot-password">Forgot Password?</a>
-    <br />
-    <a routerLink="/register">If new user, register here</a>
-  </div> -->
-
-
-
+        <div *ngIf="loginForm.get('role')?.touched && loginForm.get('role')?.invalid">
+          <span class="error">Please select a role.</span>
+        </div> -->
   
-
-  <!-- <div class="form-container">
-    <div class="form-card">
-      <h2>Create Account</h2>
-      <form (ngLogin)="onLogin()">
-        <div class="form-group">
+        <!-- Username Field -->
+        <!-- <div class="form-group">
           <label for="username">Username</label>
           <input
             type="text"
             id="username"
-            name="username"
-            [(ngModel)]="formData.username"
-            required
+            formControlName="username"
+            placeholder="Enter your username"
           />
+          <div *ngIf="loginForm.get('username')?.invalid && loginForm.get('username')?.touched">
+            <span class="error">Username is required.</span>
+          </div>
         </div>
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            [(ngModel)]="formData.email"
-            required
-          />
-        </div>
-        <div class="form-group">
+  
+        <!-- Password Field -->
+        <!-- <div class="form-group">
           <label for="password">Password</label>
           <input
             type="password"
             id="password"
-            name="password"
-            [(ngModel)]="formData.password"
-            required
+            formControlName="password"
+            placeholder="Enter your password"
           />
-        </div>
-        <div class="form-group">
-          <label for="confirmPassword">Confirm Password</label>
-          <input
-            type="password"
-            id="confirmPassword"
-            name="confirmPassword"
-            [(ngModel)]="formData.confirmPassword"
-            required
-          />
-        </div>
-        <button type="submit" class="submit-btn">Sign Up</button>
-      </form>
-      <p class="login-link">
-        Already Registered? <a href="/login">Login</a>
+          <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+            <span class="error">Password is required.</span>
+          </div>
+        </div> -->
+  
+        <!-- Login Button -->
+        <!-- <button type="submit" [disabled]="loginForm.invalid" class="btn">Sign In</button>
+   -->
+        <!-- Error Message -->
+        <!-- <div *ngIf="loginError" class="error">{{ loginError }}</div>
+      </form> -->
+  
+      <!-- Registration Link (Conditional for User Role) -->
+      <!-- <p class="routerLink" *ngIf="loginForm.get('role')?.value === 'user'">
+        If new user, register here <a routerLink="/register">Register</a>
       </p>
     </div>
-  </div>
-   -->
+  </div> --> 
 
-   <!-- login.component.html -->
-   <div class="login-container">
+  <div class="login-container"> 
     <div class="login-box">
       <h2>Login</h2>
       <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
@@ -98,8 +85,15 @@
             <input
               type="radio"
               formControlName="role"
-              value="constructor"
+              value="admin"
             /> Admin
+          </label>
+          <label>
+            <input
+              type="radio"
+              formControlName="role"
+              value="constructor"
+            /> Constructor
           </label>
         </div>
         <div *ngIf="loginForm.get('role')?.touched && loginForm.get('role')?.invalid">
@@ -141,9 +135,13 @@
         <div *ngIf="loginError" class="error">{{ loginError }}</div>
       </form>
   
-      <!-- Registration Link (Conditional for User Role) -->
+      <!-- Registration Link (Conditional for User and Constructor Role) -->
       <p class="routerLink" *ngIf="loginForm.get('role')?.value === 'user'">
         If new user, register here <a routerLink="/register">Register</a>
       </p>
+      <p class="routerLink" *ngIf="loginForm.get('role')?.value === 'constructor'">
+        If new constructor, register here <a routerLink="/constructor-register">Register</a>
+      </p>
     </div>
   </div>
+  

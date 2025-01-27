@@ -1,11 +1,12 @@
 <div class="admin-dashboard-container">
     <!-- Sidebar -->
     <aside class="sidebar">
-      <div class="logo">Admin Dashboard</div>
+      <div class="logo" routerLink="/admin-home">Admin Dashboard</div>
       <nav>
         <ul>
-          <li class="active" (click)="navigateTo('users')">USERS</li>
-          <li  routerLink="/admin-constructors" >CONSTRUCTORS</li>
+          <!-- <li class="active" (click)="navigateTo('users')">USERS</li> -->
+          <li  routerLink="/admin-users" >USERS</li>
+          <li class="active" (click)="navigateTo('constructors')">CONSTRUCTORS</li>
         </ul>
       </nav>
       <div class="logout" routerLink="/login">LOGOUT</div>
@@ -13,7 +14,7 @@
   
     <!-- Main Content -->
     <main class="main-content">
-      <div class="header">USER</div>
+      <div class="header">CONSTRUCTOR</div>
   
       <div class="users-table">
         <table>

@@ -17,6 +17,8 @@ import { ReportsComponent } from './user/reports/reports.component';
 import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { AdminUsersComponent } from './admin-home/admin-users/admin-users.component';
 import { AdminConstructorsComponent } from './admin-home/admin-constructors/admin-constructors.component';
+import { ConstructorHomeComponent } from './constructor-home/constructor-home.component';
+import { ConstructorRegisterComponent } from './constructor-home/constructor-register/constructor-register.component';
 
 
 
@@ -37,6 +39,8 @@ export const routes: Routes = [  // Add 'export' here
   {path:'admin-home', component: AdminHomeComponent},
   {path:'admin-users',component: AdminUsersComponent},
   {path:'admin-constructors', component: AdminConstructorsComponent},
+  {path:'constructor-home',component:ConstructorHomeComponent},
+  {path:'constructor-register',component:ConstructorRegisterComponent}
 ];
 
 @NgModule({

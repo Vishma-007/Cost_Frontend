@@ -18,21 +18,21 @@ export class ServicesComponent {
       title: 'Interior Works',
       description:
         'Dreaming of transforming your space? Let us design it for you.',
-      image: 'assets/images/interior-works.jpg',
+      image: 'assets/interior_design.png',
     },
     {
       id: 2,
       title: 'Renovation Works',
       description:
         'Thinking of giving your home a makeover? We’re here to bring it to life.',
-      image: 'assets/images/renovation-works.jpg',
+      image: 'assets/renovation.png',
     },
     {
       id: 3,
       title: 'New Construction',
       description:
         'Got new land and want to relocate to a new place? We can help.',
-      image: 'assets/images/new-construction.jpg',
+      image: 'assets/new_construction.png',
     },
   ];
 
