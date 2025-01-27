@@ -4,7 +4,7 @@
   color: #333;
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 120vh;
   background-color: #e8e5e0; /* Matches the beige background of the uploaded image */
 }
 
@@ -51,9 +51,8 @@ h2 {
   flex-direction: column;
   align-items: flex-start;
 }
-.unit{
+.unit {
   font-size: 10px;
-  
 }
 
 label {
@@ -79,9 +78,9 @@ select:focus {
   outline: none;
 }
 
-/* Built-up area label */
-input[type="number"] + label {
-  margin-top: 5px;
+/* Material quality placeholder issue */
+select option:disabled {
+  color: #bbb; /* Light color for disabled placeholder */
 }
 
 /* Error messages */
@@ -94,7 +93,7 @@ input[type="number"] + label {
 
 /* Submit button */
 button {
-  width: 50%;
+  width: 40%;
   padding: 12px;
   margin: 0 auto;
   background-color: #333; /* Black color for the button */
@@ -105,7 +104,10 @@ button {
   text-transform: uppercase;
   letter-spacing: 0.05em;
   cursor: pointer;
+  gap: 20px; /* Adds space between buttons */
+  margin-top: 20px;
   transition: background-color 0.3s ease-in-out;
+  
 }
 
 button:hover {
@@ -116,16 +118,6 @@ button:disabled {
   background-color: #bbb;
   cursor: not-allowed;
 }
-.explore-materials-button {
-  background-color: #666;
-  color: #fff;
-  float: right;
-}
-
-.explore-materials-button:hover {
-  background-color: #333;
-}
-
 
 /* Responsive adjustments */
 @media (max-width: 768px) {

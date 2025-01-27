@@ -2,8 +2,12 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HttpHeaders } from '@angular/common/http';
 import { NavbarComponent } from '../navbar/navbar.component';
+import { InputService } from '../../input.service';
+import { CostestimateService } from '../../costestimate.service';
+import { HttpErrorResponse } from '@angular/common/http'; 
+// import { HttpClient } from '@angular/common/http';
 // import { MaterialsComponent } from '../materials/materials.component';
 
 @Component({
@@ -12,7 +16,12 @@ import { NavbarComponent } from '../navbar/navbar.component';
   templateUrl: './home.component.html',
   imports: [
       FormsModule,
-      ReactiveFormsModule, NavbarComponent, CommonModule,RouterModule],
+      ReactiveFormsModule, NavbarComponent, CommonModule,RouterModule,HttpClientModule,],
+      providers: [
+        InputService,
+        CostestimateService, // Add services here
+      ],
+      
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
@@ -58,6 +67,7 @@ export class HomeComponent {
 
   // If you need to set cities based on the selected state:
   cities: string[] = [];
+  totalCost: number | null = null;
 
   // This method updates the cities based on the selected state
   // onStateChange(selectedState: string): void {
@@ -69,10 +79,11 @@ export class HomeComponent {
     if (selectElement) {
       const selectedState = selectElement.value; // Safely access the value property
       this.cities = this.stateCitiesMap[selectedState] || [];
+      this.userDetailsForm.controls['city'].setValue(''); 
     }
   }
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder,private http: HttpClient) {
     this.userDetailsForm = this.fb.group({
       name: ['', [Validators.required]],
       builtUpArea: ['', [Validators.required, Validators.min(1)]],
@@ -87,12 +98,33 @@ export class HomeComponent {
     });
   }
 
-  onSubmit() {
+  onSubmit(): void {
     if (this.userDetailsForm.valid) {
-      console.log('Form Submitted!', this.userDetailsForm.value);
-      // Here you can handle the form submission, e.g., send data to a server
+      this.http.post('http://localhost:8090/api/inputs', this.userDetailsForm.value).subscribe({
+        next: (response: any) => {
+          console.log('Form submitted successfully!', response);
+          alert('Details saved successfully!');
+        },
+        error: (error: HttpErrorResponse) => {
+          console.error('Error submitting form:', error);
+          alert('Failed to save details.');
+        }
+      });
     } else {
       console.log('Form is invalid');
     }
   }
+    calculateCost() {
+      const inputId = 1; // Replace this with the actual input ID once stored
+      this.http.get(`http://localhost:8090/api/cost-estimates/calculate/${inputId}`).subscribe({
+        next: (response: any) => {
+          this.totalCost = response.totalCost; // Assuming response contains a field `totalCost`
+          alert(`The calculated cost is ${this.totalCost}`);
+        },
+        error: (error: HttpErrorResponse) => {
+          console.error('Error calculating cost:', error);
+          alert('Failed to calculate cost.');
+        }
+      });
+    }
 }
