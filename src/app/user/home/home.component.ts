@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 import { Router, RouterModule } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { NavbarComponent } from '../navbar/navbar.component';
-import { MaterialsComponent } from '../materials/materials.component';
+// import { MaterialsComponent } from '../materials/materials.component';
 
 @Component({
   selector: 'app-home',
@@ -12,7 +12,7 @@ import { MaterialsComponent } from '../materials/materials.component';
   templateUrl: './home.component.html',
   imports: [
       FormsModule,
-      ReactiveFormsModule, NavbarComponent, CommonModule,RouterModule,MaterialsComponent],
+      ReactiveFormsModule, NavbarComponent, CommonModule,RouterModule],
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {

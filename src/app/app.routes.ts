@@ -13,6 +13,10 @@ import { InquireNowComponent } from './user/inquire-now/inquire-now.component';
 import { NavbarComponent } from './user/navbar/navbar.component';
 import { ContactComponent } from './user/contact/contact.component';
 import { MaterialsComponent } from './user/materials/materials.component';
+import { ReportsComponent } from './user/reports/reports.component';
+import { AdminHomeComponent } from './admin-home/admin-home.component';
+import { AdminUsersComponent } from './admin-home/admin-users/admin-users.component';
+import { AdminConstructorsComponent } from './admin-home/admin-constructors/admin-constructors.component';
 
 
 
@@ -29,6 +33,10 @@ export const routes: Routes = [  // Add 'export' here
   { path: 'navbar', component: NavbarComponent },
   {path:'contact', component: ContactComponent},
   {path:'materials', component: MaterialsComponent},
+  {path:'reports', component: ReportsComponent},
+  {path:'admin-home', component: AdminHomeComponent},
+  {path:'admin-users',component: AdminUsersComponent},
+  {path:'admin-constructors', component: AdminConstructorsComponent},
 ];
 
 @NgModule({
