@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class CostestimateService {
 
-  private baseUrl = 'http://localhost:8090/api';
+  private baseUrl = 'http://localhost:8081/api/cost-estimates';
 
   constructor(private http: HttpClient) {}
 

@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class InputService {
-  private apiUrl = 'http://localhost:8090/api/inputs'; // Base URL for the backend API
+  private apiUrl = 'http://localhost:8080/api/inputs'; // Base URL for the backend API
 
   constructor(private http: HttpClient) {}
 

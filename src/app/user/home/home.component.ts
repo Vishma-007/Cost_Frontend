@@ -85,22 +85,23 @@ export class HomeComponent {
 
   constructor(private fb: FormBuilder,private http: HttpClient) {
     this.userDetailsForm = this.fb.group({
-      name: ['', [Validators.required]],
-      builtUpArea: ['', [Validators.required, Validators.min(1)]],
+      userName: ['', [Validators.required]],
+      builtupArea: ['', [Validators.required, Validators.min(1)]],
       phoneNumber: ['', [Validators.required, Validators.pattern(/^\d{10}$/)]],
-      email: ['', [Validators.required, Validators.email]],
+      userEmail: ['', [Validators.required, Validators.email]],
       constructionType: ['', [Validators.required]],
-      totalFloors: ['', [Validators.required, Validators.min(1)]],
-      propertyName: ['', [Validators.required]],
-      landClearance: ['', [Validators.required]],
+      totalFloor: ['', [Validators.required, Validators.min(1)]],
+      propName: ['', [Validators.required]],
+      landclearence: ['', [Validators.required]],
       city: ['', [Validators.required]],
-      state: ['', [Validators.required]]
+      state: ['', [Validators.required]],
+      materialQuality: ['', [Validators.required]],
     });
   }
 
   onSubmit(): void {
     if (this.userDetailsForm.valid) {
-      this.http.post('http://localhost:8090/api/inputs', this.userDetailsForm.value).subscribe({
+      this.http.post('http://localhost:8080/api/inputs', this.userDetailsForm.value).subscribe({
         next: (response: any) => {
           console.log('Form submitted successfully!', response);
           alert('Details saved successfully!');
@@ -115,8 +116,8 @@ export class HomeComponent {
     }
   }
     calculateCost() {
-      const inputId = 1; // Replace this with the actual input ID once stored
-      this.http.get(`http://localhost:8090/api/cost-estimates/calculate/${inputId}`).subscribe({
+      const inputId = 4; // Replace this with the actual input ID once stored
+      this.http.get(`http://localhost:8081/api/cost-estimates/calculate/${inputId}`).subscribe({
         next: (response: any) => {
           this.totalCost = response.totalCost; // Assuming response contains a field `totalCost`
           alert(`The calculated cost is ${this.totalCost}`);
