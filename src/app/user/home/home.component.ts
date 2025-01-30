@@ -67,7 +67,10 @@ export class HomeComponent {
 
   // If you need to set cities based on the selected state:
   cities: string[] = [];
+  InputId: number=0;
   totalCost: number | null = null;
+  inputId!: number;
+
 
   // This method updates the cities based on the selected state
   // onStateChange(selectedState: string): void {
@@ -83,7 +86,7 @@ export class HomeComponent {
     }
   }
 
-  constructor(private fb: FormBuilder,private http: HttpClient) {
+  constructor(private fb: FormBuilder,private http: HttpClient,private costEstimateService: CostestimateService) {
     this.userDetailsForm = this.fb.group({
       userName: ['', [Validators.required]],
       builtupArea: ['', [Validators.required, Validators.min(1)]],
@@ -99,12 +102,34 @@ export class HomeComponent {
     });
   }
 
+
+  // onSubmit(): void {
+  //   if (this.userDetailsForm.valid) {
+  //     this.http.post('http://localhost:8080/api/inputs', this.userDetailsForm.value).subscribe({
+  //       next: (response: any) => {
+  //         this.inputId = response.id; // Save inputId
+  //         alert('Details saved successfully!');
+  //       },
+  //       error: (error: HttpErrorResponse) => {
+  //         console.error('Error submitting form:', error);
+  //         alert('Failed to save details.');
+  //       }
+  //     });
+  //   } else {
+  //     console.log('Form is invalid');
+  //   }
+  // }
+
+
   onSubmit(): void {
     if (this.userDetailsForm.valid) {
       this.http.post('http://localhost:8080/api/inputs', this.userDetailsForm.value).subscribe({
         next: (response: any) => {
-          console.log('Form submitted successfully!', response);
-          alert('Details saved successfully!');
+          this.inputId = response.id; // Store inputId received from backend
+          alert('Details saved successfully! Input ID: ' + this.inputId);
+  
+          // Now that we have the correct inputId, calculate cost
+          this.calculateCost();
         },
         error: (error: HttpErrorResponse) => {
           console.error('Error submitting form:', error);
@@ -115,17 +140,77 @@ export class HomeComponent {
       console.log('Form is invalid');
     }
   }
-    calculateCost() {
-      const inputId = 4; // Replace this with the actual input ID once stored
-      this.http.get(`http://localhost:8081/api/cost-estimates/calculate/${inputId}`).subscribe({
-        next: (response: any) => {
-          this.totalCost = response.totalCost; // Assuming response contains a field `totalCost`
-          alert(`The calculated cost is ${this.totalCost}`);
-        },
-        error: (error: HttpErrorResponse) => {
-          console.error('Error calculating cost:', error);
-          alert('Failed to calculate cost.');
-        }
-      });
+  
+  calculateCost(): void {
+    if (!this.inputId) {
+      alert('Please submit the form first to get an input ID.');
+      return;
     }
+  
+    // Now call the cost estimation API with the correct inputId
+    this.http.get(`http://localhost:8081/api/cost-estimates/calculate/${this.inputId}`).subscribe({
+      next: (response: any) => {
+        this.totalCost = response.totalCost; // Store total cost
+        alert(`The calculated cost is ${this.totalCost}`);
+      },
+      error: (error: HttpErrorResponse) => {
+        console.error('Error calculating cost:', error);
+        alert('Failed to calculate cost.');
+      }
+    });
+  }
+  
+  fetchInputId(userId: number): void {
+    this.costEstimateService.getInputById(userId).subscribe({
+      next: (response: any) => {
+        if (response && response.id) {
+          this.inputId = response.id; // Assign fetched inputId
+          console.log("Fetched inputId:", this.inputId);
+          alert(`Input ID fetched: ${this.inputId}`);
+        } else {
+          alert('No input ID found for this user.');
+        }
+      },
+      error: (error: HttpErrorResponse) => {
+        console.error('Error fetching input ID:', error);
+        alert('Failed to fetch input ID.');
+      }
+    });
+  }
+    // calculateCost() {
+    //   const inputId = 4; // Replace this with the actual input ID once stored
+    //   this.http.get(`http://localhost:8081/api/cost-estimates/calculate/${inputId}`).subscribe({
+    //     next: (response: any) => {
+    //       this.totalCost = response.totalCost; // Assuming response contains a field `totalCost`
+    //       alert(`The calculated cost is ${this.totalCost}`);
+    //     },
+    //     error: (error: HttpErrorResponse) => {
+    //       console.error('Error calculating cost:', error);
+    //       alert('Failed to calculate cost.');
+    //     }
+    //   });
+    // }
+  
+    //recent
+    // calculateCost(): void {
+
+    //   if (!this.inputId) {
+    //     alert('Please submit the form first to get an input ID.');
+    //     return;
+    //   }
+      
+    //   this.http.get(`http://localhost:8081/api/cost-estimates/calculate/${this.inputId}`).subscribe({
+    //     next: (response: any) => {
+    //       console.log("I'm inside calculation")
+    //       this.totalCost = response.totalCost; // Store total cost
+    //       console.log("Total cost",this.totalCost);
+    //       alert(`The calculated cost is ${this.totalCost}`);
+    //     },
+    //     error: (error: HttpErrorResponse) => {
+    //       console.error('Error calculating cost:', error);
+    //       alert('Failed to calculate cost.');
+    //     }
+    //   });
+    // }
+    
 }

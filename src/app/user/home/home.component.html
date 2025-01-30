@@ -150,9 +150,9 @@
         <div class="form-group">
           <select id="constructionType" formControlName="constructionType">
             <option value="" disabled selected hidden>CONSTRUCTION TYPE</option>
-            <option value="New Construction">New Construction</option>
+            <option value="NewConstruction">New Construction</option>
             <option value="Renovation">Renovation</option>
-            <option value="Interior Design">Interior Design</option>
+            <option value="InteriorDesign">Interior Design</option>
           </select>
         </div>
 
@@ -193,7 +193,7 @@
         <button routerLink="/materials" class="nav-button">Explore Materials</button>
       </div>
     </form>
-    <button (click)="calculateCost()">Calculate Cost</button>
+    <!-- <button (click)="calculateCost()">Calculate Cost</button> -->
   <div *ngIf="totalCost !== null">
     <p>The total calculated cost is: {{ totalCost }}</p>
   </div>
